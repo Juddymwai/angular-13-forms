@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl,FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
- import Validation from './utils/Validation';
+ import Validation from './utils/validation';
 
 @Component({
   selector: 'app-root',
@@ -53,9 +53,24 @@ export class AppComponent implements OnInit{
 
     );
   }
-  // ... 
+  get f(): { [key: string]: AbstractControl } {
+    return this.form.controls;
+  }
 
+  onSubmit(): void {
+    this.submitted = true;
+
+    if (this.form.invalid) {
+      return;
+    }
+
+    console.log(JSON.stringify(this.form.value, null, 2));
+  }
+
+  onReset(): void {
+    this.submitted = false;
+    this.form.reset();
+  }
   
-
 
 }
