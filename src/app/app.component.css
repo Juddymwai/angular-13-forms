@@ -1,4 +1,16 @@
 .register-form {
     max-width: 350px;
     margin: auto;
+    margin-top: 1.6em;
+   
+
+  }
+
+  .form-group {
+    color: brown;
+    
+    
+  }
+  .form-control {
+    border-color: black;
   }
